@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Guessing Game</title>
+    </h:head>
+    <h:body style="background: url(riddler.jpg); font-weight:bolder;" >
+        <h:form id ="guessForm" style="text-align:center; margin:auto;">
+            <div style="text-align:center; margin:auto; margin-top:150px; background-color: yellowgreen; height:175px; width:250px; padding-top:15px;">
+                <h:outputText value="Guess a number between 1 and 10"/><br></br>
+                    <h:outputLabel style="color:red;" rendered="#{guessBean.gameStatus}" id="gameStatus" value="#{guessBean.gameStatusMessage}"></h:outputLabel><br></br>
+                <h:selectOneMenu id="selectedNumber" value="#{guessBean.guess}">
+                    <f:selectItem itemValue="1" itemLabel="1"></f:selectItem>
+                    <f:selectItem itemValue="2" itemLabel="2"></f:selectItem>
+                    <f:selectItem itemValue="3" itemLabel="3"></f:selectItem>
+                    <f:selectItem itemValue="4" itemLabel="4"></f:selectItem>
+                    <f:selectItem itemValue="5" itemLabel="5"></f:selectItem>
+                    <f:selectItem itemValue="6" itemLabel="6"></f:selectItem>
+                    <f:selectItem itemValue="7" itemLabel="7"></f:selectItem>
+                    <f:selectItem itemValue="8" itemLabel="8"></f:selectItem>
+                    <f:selectItem itemValue="9" itemLabel="9"></f:selectItem>
+                    <f:selectItem itemValue="10" itemLabel="10"></f:selectItem>
+                </h:selectOneMenu><br></br>
+                    <h:commandButton id="checkGuessBtn" value="Check Guess" action="#{guessBean.checkGuess}"></h:commandButton><br></br>
+                            <h:outputLabel style="color: blue;" id="guessMessage" value="#{guessBean.guessMessage}"></h:outputLabel><br></br>
+                <h:outputLabel id="maxGuesses" value="Maximum Number of Guesses:#{guessBean.maxGuesses}"></h:outputLabel><br></br>
+                <h:outputLabel id="minGuesses" value="Minimum Number of Guesses: #{guessBean.minGuesses}"></h:outputLabel><br></br>
+                <h:commandButton rendered="#{guessBean.playAgain}" action="#{guessBean.newGame}" id="playAgain" value="Play Again"></h:commandButton>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
